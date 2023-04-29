@@ -13,6 +13,7 @@ public class HoopScoreScript : MonoBehaviour
     {
         //TextMeshPro ScoreText = ScoreTextGO.GetComponent<TextMeshPro>();
         ScoreText.text = score.ToString();
+        ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();
     }
 
     void Update()
