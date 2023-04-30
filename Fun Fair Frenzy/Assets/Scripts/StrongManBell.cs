@@ -6,11 +6,14 @@ using UnityEngine.Events;
 
 public class StrongManBell : MonoBehaviour
 {
+    //[SerializeField] float GaugeInnerEndHeight;
     [SerializeField] TMP_Text ScoreText;
     [SerializeField] GameObject GaugeInner;
     public UnityEvent OnBellHitUE;
     float GaugeInnerStartHeight;
     float score = 0;
+    float time = 1;
+    bool gameActive = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,7 @@ public class StrongManBell : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "SledgeHammer")
+        if (collision.gameObject.name == "SledgeHammer" && gameActive)
         {
             score = collision.relativeVelocity.magnitude;//this stores the impact force
             ScoreText.text = (score * 100).ToString();
@@ -46,6 +49,23 @@ public class StrongManBell : MonoBehaviour
     public void OnBellHit()
     {
         GaugeInner.transform.position = new Vector3(GaugeInner.transform.position.x, GaugeInnerStartHeight, GaugeInner.transform.position.z);// reset the gauge first
-        GaugeInner.transform.position = new Vector3(GaugeInner.transform.position.x, GaugeInnerStartHeight + score/3 , GaugeInner.transform.position.z);//set the gauge position, needs a better calculation
+        //GaugeInner.transform.position = new Vector3(GaugeInner.transform.position.x, GaugeInnerStartHeight + score/3 , GaugeInner.transform.position.z);//set the gauge position, needs a better calculation
+
+        StartCoroutine(MoveInnerGauge(GaugeInnerStartHeight + score / 3, time));
+    }
+    IEnumerator MoveInnerGauge(float targetHeight, float time)
+    {
+        gameActive = false;
+        float elapsedTime = 0;
+
+        while (elapsedTime < time)
+        {
+            GaugeInner.transform.position = Vector3.Lerp(new Vector3(GaugeInner.transform.position.x, GaugeInnerStartHeight, GaugeInner.transform.position.z), new Vector3(GaugeInner.transform.position.x, targetHeight, GaugeInner.transform.position.z), (elapsedTime / time));
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+        GaugeInner.transform.position = new Vector3(GaugeInner.transform.position.x, targetHeight, GaugeInner.transform.position.z);
+
+        gameActive = true;
     }
 }
