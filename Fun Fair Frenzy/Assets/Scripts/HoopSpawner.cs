@@ -2,14 +2,16 @@ using HurricaneVR.Framework.Core;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class HoopSpawner : MonoBehaviour
 {
+    [SerializeField] bool isMovingHoopGame;
     [SerializeField] TMP_Text ScoreText;
-    [SerializeField] GameObject Hoop;
-    [SerializeField] GameObject HoopSwanPoint;
+    [SerializeField] GameObject goToSpawn;
+    [SerializeField] GameObject SpwanPoint;
     [SerializeField] int spawnLimit = 3;
     List<GameObject> spawnedHoops = new List<GameObject>();
     int spawned;
@@ -30,8 +32,27 @@ public class HoopSpawner : MonoBehaviour
         if (/*gameActive &&*/ spawned <= spawnLimit)
         {
             spawnedHoops.Add(null);
-            
-            spawnedHoops[spawnIndex] = Instantiate(Hoop, HoopSwanPoint.transform.position, Quaternion.identity);
+
+            spawnedHoops[spawnIndex] = Instantiate(goToSpawn, SpwanPoint.transform.position, Quaternion.identity);
+            spawnedHoops[spawnIndex].transform.GetChild(0).GetComponent<HoopScoreScript>().isMovingHoopGame = isMovingHoopGame;
+
+            //GameObject spawnedHoopReference = Instantiate(Hoop, HoopSwanPoint.transform.position, Quaternion.identity);
+            //spawnedHoopReference.GetComponent<HoopScoreScript>().
+            //spawnedHoops[spawnIndex] = spawnedHoopReference;
+
+            spawned++;
+            spawnIndex++; //reset them!!!
+        }
+    }
+    public void SpawnGO()
+    {
+        if (/*gameActive &&*/ spawned <= spawnLimit)
+        {
+            spawnedHoops.Add(null);
+
+            spawnedHoops[spawnIndex] = Instantiate(goToSpawn, SpwanPoint.transform.position, Quaternion.identity);
+
+
             spawned++;
             spawnIndex++; //reset them!!!
         }

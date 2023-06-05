@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class HoopScoreScript : MonoBehaviour
+public class HoopMovingScoreScript : MonoBehaviour
 {
     //MeshCollider HoopInnerCollider;
     //[SerializeField] GameObject ScoreTextGO;
@@ -12,13 +12,13 @@ public class HoopScoreScript : MonoBehaviour
     void Start()
     {
         //TextMeshPro ScoreText = ScoreTextGO.GetComponent<TextMeshPro>();
-        ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();
+        ScoreText = GameObject.Find("Moving Hoop Score").GetComponent<TMP_Text>();
         //ScoreText.text = score.ToString();
         
     }
     private void Awake()
     {
-        ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();
+        ScoreText = GameObject.Find("Moving Hoop Score").GetComponent<TMP_Text>();
         //ScoreText.text = score.ToString();
        
     }
