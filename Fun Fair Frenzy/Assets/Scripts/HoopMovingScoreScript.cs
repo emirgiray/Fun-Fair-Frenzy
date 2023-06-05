@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class HoopMovingScoreScript : MonoBehaviour
+public class HoopScoreScript : MonoBehaviour
 {
     //MeshCollider HoopInnerCollider;
     //[SerializeField] GameObject ScoreTextGO;
@@ -33,7 +33,6 @@ public class HoopMovingScoreScript : MonoBehaviour
         {
             score++;
             ScoreText.text = score.ToString();
-            //this.GetComponent<HoopScoreScript>().enabled = false;
         }
     }
 }

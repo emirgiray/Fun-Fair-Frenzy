@@ -17,7 +17,7 @@ public class HoopSpawner : MonoBehaviour
     bool gameActive = true;
     void Start()
     {
-        ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();       
+        //ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();       
     }
 
 
