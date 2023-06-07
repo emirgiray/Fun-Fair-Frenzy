@@ -16,24 +16,12 @@ public class KnifeThrowingGame : MonoBehaviour
     {
         
     }
-    public void InnerColliderHit()
-    {
-        Debug.Log("Inner Hit");
-        score += 20;
+    public void KnifeHit()
+    {      
+        score += 1;
         ScoreText.text = score.ToString();
     }
-    public void MiddleColliderHit()
-    {
-        Debug.Log("Middle Hit");
-        score += 10;
-        ScoreText.text = score.ToString();
-    }
-    public void OuterColliderHit()
-    {
-        Debug.Log("Outer Hit");
-        score += 5;
-        ScoreText.text = score.ToString();
-    }
+    
     public void ReseteGame()
     {
         score = 0;

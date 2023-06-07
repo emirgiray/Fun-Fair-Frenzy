@@ -1,22 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class HoopScoreManager : MonoBehaviour
 {
     [SerializeField] TMP_Text ScoreText;
+    [SerializeField] bool isMovingHoopGame;
+    [SerializeField] GameObject objectToMove;
+    [SerializeField] float rotationSpeed = 0.1f;
     int score = 0;
-    // Start is called before the first frame update
+    
+    
     void Start()
     {
         //ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        
+        if (isMovingHoopGame) 
+        {
+            objectToMove.transform.Rotate(0, rotationSpeed, 0 * Time.deltaTime);
+        }
     }
     public void UpdateScore()
     {
@@ -24,3 +33,17 @@ public class HoopScoreManager : MonoBehaviour
         ScoreText.text = score.ToString();
     }
 }
+//[CustomEditor(typeof(HoopScoreManager))]
+//public class MyScriptEditor : Editor
+//{
+//    override public void OnInspectorGUI()
+//    { 
+//        var myScript = target as HoopScoreManager;
+
+//        myScript.isMovingHoopGame = GUILayout.Toggle(myScript.isMovingHoopGame, "Moving?");
+
+//        if (myScript.isMovingHoopGame)
+//            myScript.objectToMove = (GameObject)EditorGUILayout.ObjectField("GameObject", myScript.objectToMove, typeof(GameObject), true);
+
+//    }
+//}
