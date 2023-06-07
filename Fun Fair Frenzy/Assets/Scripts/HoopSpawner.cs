@@ -13,7 +13,7 @@ public class HoopSpawner : MonoBehaviour
     [SerializeField] GameObject goToSpawn;
     [SerializeField] GameObject SpwanPoint;
     [SerializeField] int spawnLimit = 3;
-    List<GameObject> spawnedHoops = new List<GameObject>();
+    [SerializeField] List<GameObject> spawnedHoops = new List<GameObject>();
     int spawned;
     int spawnIndex = 0;
     bool gameActive = true;

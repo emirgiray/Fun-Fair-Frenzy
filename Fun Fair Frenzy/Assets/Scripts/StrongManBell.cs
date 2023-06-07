@@ -28,7 +28,7 @@ public class StrongManBell : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "SledgeHammer" && gameActive)
+        if (collision.gameObject.name == "Hammer_FFF" && gameActive)
         {
             score = collision.relativeVelocity.magnitude;//this stores the impact force
             ScoreText.text = (score * 100).ToString();
