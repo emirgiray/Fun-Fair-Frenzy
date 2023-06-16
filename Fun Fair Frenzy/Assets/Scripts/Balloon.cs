@@ -8,12 +8,12 @@ public class Balloon : MonoBehaviour
     [SerializeField] GameObject balloonParticleSystem;
     void Start()
     {
-        scoreManager = GameObject.Find("Balloon Popping Score Manger").GetComponent<BalloonPoppingScoreManager>();
+        scoreManager = GameObject.Find("Balloon Popping Score Manager").GetComponent<BalloonPoppingScoreManager>();
 
     }
      void Awake()
     {
-        scoreManager = GameObject.Find("Balloon Popping Score Manger").GetComponent<BalloonPoppingScoreManager>();
+        scoreManager = GameObject.Find("Balloon Popping Score Manager").GetComponent<BalloonPoppingScoreManager>();
     }
 
     void Update()

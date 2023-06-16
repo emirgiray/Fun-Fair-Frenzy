@@ -47,7 +47,7 @@ public class HoopScoreScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name.Contains("Bottle")) 
+        if (other.gameObject.name.Contains("Bottle") || other.gameObject.tag.Equals("Bottle") )
         {
             
             if (doOnce == false)

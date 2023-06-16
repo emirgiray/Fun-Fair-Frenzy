@@ -12,7 +12,7 @@ public class HoopSpawner : MonoBehaviour
     [SerializeField] TMP_Text ScoreText;
     [SerializeField] GameObject goToSpawn;
     [SerializeField] GameObject SpwanPoint;
-    [SerializeField] int spawnLimit = 3;
+    [SerializeField] public int spawnLimit = 10;
      List<GameObject> spawnedHoops = new List<GameObject>();
     int spawned;
     int spawnIndex = 0;

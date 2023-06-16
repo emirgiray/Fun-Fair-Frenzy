@@ -5,11 +5,17 @@ using UnityEngine;
 
 public class BalloonPoppingScoreManager : MonoBehaviour
 {
+    public int numberOfTries = 10;
+    public int exhaustedTries = 0;
+    public bool isGameOver = false;
+    [SerializeField] GameObject ticketMachine;
+    [SerializeField] GameObject GOSpawner;
     [SerializeField] TMP_Text ScoreText;
-    int score = 0;
+    public int score = 0;
+
     void Start()
     {
-        
+        numberOfTries = GOSpawner.GetComponent<HoopSpawner>().spawnLimit + 1;
     }
 
     // Update is called once per frame
@@ -28,17 +34,25 @@ public class BalloonPoppingScoreManager : MonoBehaviour
     }
     public void ReseteGame()
     {
-        //gameActive = false;
-        //for (int i = 0; i < spawned; i++)
-        //{
-        //    Destroy(spawnedHoops[i]);
-        //    spawnedHoops[i] = null;
-        //}
-        //spawnIndex = 0;
-        //spawned = 0;
-        //ScoreText.text = ("0");
-        //spawnedHoops.Clear();
+        score = 0;
+        ScoreText.text = score.ToString();
+
+        exhaustedTries = 0;
+    }
+    public void ExhaustTries()
+    {
+        exhaustedTries += 1;
+        if (exhaustedTries == numberOfTries)
+        {
+            isGameOver = true;
+
+            GameOver();
+        }
+    }
+    public void GameOver()
+    {
+        ticketMachine.GetComponent<TicketMachineController>().GiveTicket(score);
 
     }
-   
+
 }

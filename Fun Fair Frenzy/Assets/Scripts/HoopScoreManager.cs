@@ -7,16 +7,21 @@ using static UnityEngine.GraphicsBuffer;
 
 public class HoopScoreManager : MonoBehaviour
 {
+    public int numberOfTries = 10;
+    public int exhaustedTries = 0;
+    public bool isGameOver = false;
+    [SerializeField] GameObject ticketMachine;
+    [SerializeField] GameObject GOSpawner;
     [SerializeField] TMP_Text ScoreText;
     [SerializeField] bool isMovingHoopGame;
     [SerializeField] GameObject objectToMove;
     [SerializeField] float rotationSpeed = 0.1f;
-    int score = 0;
-    
-    
+    public int score = 0;
+
+
     void Start()
     {
-        //ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();
+        numberOfTries = GOSpawner.GetComponent<HoopSpawner>().spawnLimit + 1;
     }
 
     
@@ -32,18 +37,27 @@ public class HoopScoreManager : MonoBehaviour
         score++;
         ScoreText.text = score.ToString();
     }
+    public void ReseteGame()
+    {
+        score = 0;
+        ScoreText.text = score.ToString();
+
+        exhaustedTries = 0;
+    }
+    public void ExhaustTries()
+    {
+        exhaustedTries += 1;
+        if (exhaustedTries == numberOfTries)
+        {
+            isGameOver = true;
+
+            GameOver();
+        }
+    }
+    public void GameOver()
+    {
+        ticketMachine.GetComponent<TicketMachineController>().GiveTicket(score);
+
+    }
 }
-//[CustomEditor(typeof(HoopScoreManager))]
-//public class MyScriptEditor : Editor
-//{
-//    override public void OnInspectorGUI()
-//    { 
-//        var myScript = target as HoopScoreManager;
 
-//        myScript.isMovingHoopGame = GUILayout.Toggle(myScript.isMovingHoopGame, "Moving?");
-
-//        if (myScript.isMovingHoopGame)
-//            myScript.objectToMove = (GameObject)EditorGUILayout.ObjectField("GameObject", myScript.objectToMove, typeof(GameObject), true);
-
-//    }
-//}
