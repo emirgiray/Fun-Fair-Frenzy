@@ -13,6 +13,8 @@ namespace HurricaneVR.Framework.Weapons.Bow
     [RequireComponent(typeof(Rigidbody))]
     public class HVRBowBase : MonoBehaviour
     {
+        [SerializeField] UnityEvent ArrowShot;
+
         [Header("Bow String")]
         public HVRGrabbable NockGrabbable;
 
@@ -221,7 +223,7 @@ namespace HurricaneVR.Framework.Weapons.Bow
             _shootSpeed = SpeedCurve.Evaluate(Tension) * Speed;
 
             PlayReleasedSFX();
-
+            ArrowShot.Invoke();
             ShootArrow(Arrow.transform.forward);
         }
 
