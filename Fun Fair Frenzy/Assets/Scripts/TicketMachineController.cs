@@ -6,6 +6,7 @@ public class TicketMachineController : MonoBehaviour
 {
     [SerializeField] GameObject spawnPoint;
     [SerializeField] GameObject ticket;
+    [SerializeField] Animator animator;
     void Start()
     {
         //for (int i = 0; i < 3; i++)
@@ -25,8 +26,9 @@ public class TicketMachineController : MonoBehaviour
         for (int i = 0; i < ticketsToGive; i++)
         {
             Instantiate(ticket, spawnPoint.transform.position, Quaternion.identity);
-            Debug.Log("works son");
+            animator.SetTrigger("GiveTicket");
+            //Debug.Log("works son");
         }
-        Debug.Log("TICKET");
+        //Debug.Log("TICKET");
     }
 }

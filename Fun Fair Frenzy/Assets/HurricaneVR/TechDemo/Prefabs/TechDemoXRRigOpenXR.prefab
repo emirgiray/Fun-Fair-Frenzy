@@ -62,6 +62,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4217073654346423506, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4191546628124606371, guid: cfdb218eb1d884041af015a5993b93c3,
+        type: 3}
+    - target: {fileID: 4217073654346423506, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 32812b29b3b30d04e861408fb8d5fac8, type: 2}
+    - target: {fileID: 4419625686232686366, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4299625302041532480, guid: ba7d2a1b6a3b9fd4cb0200fe154b475c,
+        type: 3}
+    - target: {fileID: 4419625686232686366, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 59c889fbb2560984087ff58a128fb221, type: 2}
     - target: {fileID: 5641251482837343083, guid: 6974999791dc8804fafee05e319aa932,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
