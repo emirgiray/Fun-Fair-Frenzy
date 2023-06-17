@@ -20,11 +20,11 @@ public class Ticket : MonoBehaviour
     {
         
     }
-    public void IncreaseTicket()
-    {
-        ticketController.ticketCount++;
-        Destroy(gameObject);
-    }
+    //public void IncreaseTicket()
+    //{
+    //    ticketController.ticketCount++;
+    //    Destroy(gameObject);
+    //}
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Hands")

@@ -5,6 +5,11 @@ using UnityEngine;
 
 public class BalloonPoppingScoreManager : MonoBehaviour
 {
+    [SerializeField] GameObject BallonsSpawnPoint;
+    [SerializeField] GameObject BallonsSet;
+    [SerializeField] GameObject SpawnedBallonsSet;
+    [SerializeField] List<GameObject> spawnedBallons = new List<GameObject>();
+
     public int numberOfTries = 10;
     public int exhaustedTries = 0;
     public bool isGameOver = false;
@@ -38,6 +43,24 @@ public class BalloonPoppingScoreManager : MonoBehaviour
         ScoreText.text = score.ToString();
 
         exhaustedTries = 0;
+
+        Destroy(SpawnedBallonsSet);
+
+        SpawnedBallonsSet = Instantiate(BallonsSet, BallonsSpawnPoint.transform.position, Quaternion.identity);
+
+        //for (int i = 0; i < spawnedBallons.Count; i++)//delete previous ballons
+        //{
+        //    Destroy(spawnedBallons[i]);
+        //    spawnedBallons[i] = null;
+        //}
+
+        //for (int i = 0; i < spawnedBallons.Count; i++)//spawn new ballon set
+        //{
+        //    spawnedBallons.Add(null);
+
+        //    spawnedBallons[i] = Instantiate(BallonsSet, BallonsSpawnPoint.transform.position, Quaternion.identity);
+
+        //}
     }
     public void ExhaustTries()
     {

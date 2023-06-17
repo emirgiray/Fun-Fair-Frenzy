@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638226131078859304
+  lastModified: 638226182168584412
   FileSizes: []
   Exists: 1
 --- !u!114 &-6212658364533887287
@@ -45,6 +45,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 679
+--- !u!114 &-5409371336066658295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Force Pull Hand Grab
+  m_EditorClassIdentifier: 
+  Path: event:/Force Pull Hand Grab
+  Guid:
+    Data1: -839643640
+    Data2: 1153838269
+    Data3: 1908682675
+    Data4: 566646421
+  Banks:
+  - {fileID: -6783958821080929281}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 656
+--- !u!114 &-3855134482666385388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boink
+  m_EditorClassIdentifier: 
+  Path: event:/Boink
+  Guid:
+    Data1: 53195885
+    Data2: 1221511697
+    Data3: -169711983
+    Data4: 692655025
+  Banks:
+  - {fileID: -6783958821080929281}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 235
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,13 +117,99 @@ MonoBehaviour:
   EditorEvents:
   - {fileID: 4024273526078833563}
   - {fileID: -6212658364533887287}
+  - {fileID: -5409371336066658295}
+  - {fileID: 3856665076125305244}
+  - {fileID: -3855134482666385388}
+  - {fileID: 831971708654308886}
+  - {fileID: 2982501609811848965}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6783958821080929281}
   StringsBanks:
   - {fileID: 4470384975544614451}
-  cacheTime: 638226131078895009
+  cacheTime: 638226182168609446
   cacheVersion: 131605
+--- !u!114 &831971708654308886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Bullseye
+  m_EditorClassIdentifier: 
+  Path: event:/Bullseye
+  Guid:
+    Data1: -968184002
+    Data2: 1256545089
+    Data3: -1955491914
+    Data4: 200862592
+  Banks:
+  - {fileID: -6783958821080929281}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 679
+--- !u!114 &2982501609811848965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Miss
+  m_EditorClassIdentifier: 
+  Path: event:/Miss
+  Guid:
+    Data1: 1084517773
+    Data2: 1297048509
+    Data3: -1678459247
+    Data4: -1478058531
+  Banks:
+  - {fileID: -6783958821080929281}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 653
+--- !u!114 &3856665076125305244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Arrow_Miss_Mark
+  m_EditorClassIdentifier: 
+  Path: event:/Arrow_Miss_Mark
+  Guid:
+    Data1: -1077805482
+    Data2: 1317907688
+    Data3: 1109158314
+    Data4: -1156478401
+  Banks:
+  - {fileID: -6783958821080929281}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 444
 --- !u!114 &4024273526078833563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,8 +252,8 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638226131078895009
+  lastModified: 638226182168609446
   FileSizes:
   - Name: 
-    Value: 812
+    Value: 1036
   Exists: 1

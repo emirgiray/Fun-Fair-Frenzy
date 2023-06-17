@@ -6,12 +6,16 @@ using UnityEngine.Events;
 
 public class StrongManBell : MonoBehaviour
 {
+    public int numberOfTries = 10;
+    public int exhaustedTries = 0;
+    public bool isGameOver = false;
+    [SerializeField] GameObject ticketMachine;
     //[SerializeField] float GaugeInnerEndHeight;
     [SerializeField] TMP_Text ScoreText;
     [SerializeField] GameObject GaugeInner;
     public UnityEvent OnBellHitUE;
     float GaugeInnerStartHeight;
-    float score = 0;
+    public float score = 0;
     float time = 1;
     bool gameActive = true;
     // Start is called before the first frame update
@@ -33,6 +37,10 @@ public class StrongManBell : MonoBehaviour
             score = collision.relativeVelocity.magnitude;//this stores the impact force
             ScoreText.text = (score * 100).ToString();
 
+            isGameOver = true;
+
+            GameOver();
+
             //unity event çaðýr
             OnBellHitUE.Invoke();
             OnBellHit();
@@ -45,6 +53,21 @@ public class StrongManBell : MonoBehaviour
         ScoreText.text = score.ToString();
 
         GaugeInner.transform.position = new Vector3(GaugeInner.transform.position.x, GaugeInnerStartHeight, GaugeInner.transform.position.z);
+    }
+    public void ExhaustTries()
+    {
+        exhaustedTries += 1;
+        if (exhaustedTries == numberOfTries)
+        {
+            isGameOver = true;
+
+            GameOver();
+        }
+    }
+    public void GameOver()
+    {
+        ticketMachine.GetComponent<TicketMachineController>().GiveTicket(Mathf.RoundToInt( score));
+
     }
     public void OnBellHit()
     {
