@@ -68,7 +68,7 @@ public class ArcheryGame : MonoBehaviour
     }
     public void GameOver()
     {
-        ticketMachine.GetComponent<TicketMachineController>().GiveTicket(score/5);
+        ticketMachine.GetComponent<TicketMachineController>().GiveTicket(Mathf.RoundToInt(score / 10));
 
     }
 }
