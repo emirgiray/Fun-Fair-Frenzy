@@ -7,7 +7,7 @@ using UnityEngine.SocialPlatforms.Impl;
 public class TicketController : MonoBehaviour
 {
     [SerializeField] TMP_Text TicketText;
-    public int ticketCount = 0;
+    public int ticketCount;
     void Start()
     {
         TicketText = GameObject.Find("TicketText").GetComponent<TMP_Text>();

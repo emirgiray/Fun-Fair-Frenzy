@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638228936766809979
+  lastModified: 638228987983227632
   FileSizes: []
   Exists: 1
 --- !u!114 &-6731380469437110023
@@ -352,13 +352,41 @@ MonoBehaviour:
   - {fileID: 4183637443023934990}
   - {fileID: -4508669118886841592}
   - {fileID: -117374960864273718}
+  - {fileID: 622477941071123725}
   EditorParameters: []
   MasterBanks:
   - {fileID: -6783958821080929281}
   StringsBanks:
   - {fileID: 4470384975544614451}
-  cacheTime: 638228936766849868
+  cacheTime: 638228987983263425
   cacheVersion: 131605
+--- !u!114 &622477941071123725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Specialist Dance
+  m_EditorClassIdentifier: 
+  Path: event:/Specialist Dance
+  Guid:
+    Data1: -1879302811
+    Data2: 1143516185
+    Data3: -471806555
+    Data4: 1825215433
+  Banks:
+  - {fileID: -6783958821080929281}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14968
 --- !u!114 &955023179332279341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -509,10 +537,10 @@ MonoBehaviour:
   Path: Assets/FMODBanks/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638228936766849868
+  lastModified: 638228987983263425
   FileSizes:
   - Name: 
-    Value: 1658
+    Value: 1704
   Exists: 1
 --- !u!114 &4810698016829499225
 MonoBehaviour:
