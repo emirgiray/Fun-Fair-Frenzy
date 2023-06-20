@@ -10,6 +10,7 @@ public class TicketController : MonoBehaviour
     public int ticketCount = 0;
     void Start()
     {
+        TicketText = GameObject.Find("TicketText").GetComponent<TMP_Text>();
         TicketText.text = ticketCount.ToString();
     }
 

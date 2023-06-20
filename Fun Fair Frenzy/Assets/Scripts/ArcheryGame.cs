@@ -17,7 +17,7 @@ public class ArcheryGame : MonoBehaviour
     public int score = 0;
     void Start()
     {
-        ScoreText = GameObject.Find("Archery Game Score").GetComponent<TMP_Text>();
+        //ScoreText = GameObject.Find("Archery Game Score").GetComponent<TMP_Text>();
 
         numberOfTries = GOSpawner.GetComponent<HoopSpawner>().spawnLimit + 1;
     }
