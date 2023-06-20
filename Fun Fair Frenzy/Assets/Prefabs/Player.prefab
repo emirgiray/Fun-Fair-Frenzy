@@ -359,6 +359,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1828446156524185272, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hands
+      objectReference: {fileID: 0}
     - target: {fileID: 3485174680689475031, guid: 6974999791dc8804fafee05e319aa932,
         type: 3}
       propertyPath: m_IsActive
@@ -471,6 +476,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 32812b29b3b30d04e861408fb8d5fac8, type: 2}
+    - target: {fileID: 4797678196297919306, guid: 6974999791dc8804fafee05e319aa932,
+        type: 3}
+      propertyPath: m_TagString
+      value: Hands
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3924027508494267238, guid: 6974999791dc8804fafee05e319aa932, type: 3}
     - {fileID: 3924027509947911010, guid: 6974999791dc8804fafee05e319aa932, type: 3}

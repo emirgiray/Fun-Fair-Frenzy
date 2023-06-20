@@ -13,6 +13,9 @@ public class KnifeThrowingGame : MonoBehaviour
     [SerializeField] GameObject GOSpawner;
     [SerializeField] TMP_Text ScoreText;
     public int score = 0;
+
+    [SerializeField] int maxTicket = 1;
+    int givenTicket = 0;
     void Start()
     {
         ScoreText = GameObject.Find("Knife Throwing Score").GetComponent<TMP_Text>();
@@ -43,13 +46,25 @@ public class KnifeThrowingGame : MonoBehaviour
         if (exhaustedTries == numberOfTries)
         {
             isGameOver = true;
-            
-            GameOver();
+
+            StartCoroutine(WaitSeconds(1));
         }
     }
     public void GameOver()
     {
         ticketMachine.GetComponent<TicketMachineController>().GiveTicket(score);
-        
+        //givenTicket += Mathf.RoundToInt(score / 10);
+        //if (givenTicket >= maxTicket)
+        //{
+        //    //Destroy(SpawnedBow);
+        //    GOSpawner.GetComponent<HoopSpawner>().gameActive = false;
+        //}
+
+    }
+    IEnumerator WaitSeconds(float time)
+    {
+
+        yield return new WaitForSeconds(time);
+        GameOver();
     }
 }

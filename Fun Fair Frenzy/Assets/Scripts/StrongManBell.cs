@@ -6,6 +6,8 @@ using UnityEngine.Events;
 
 public class StrongManBell : MonoBehaviour
 {
+    [SerializeField] UnityEvent scoreIncreaseStart;
+    [SerializeField] UnityEvent scoreIncreaseStop;
     public int numberOfTries = 10;
     public int exhaustedTries = 0;
     public bool isGameOver = false;
@@ -13,11 +15,14 @@ public class StrongManBell : MonoBehaviour
     //[SerializeField] float GaugeInnerEndHeight;
     [SerializeField] TMP_Text ScoreText;
     [SerializeField] GameObject GaugeInner;
+    [SerializeField] GameObject Hammer;
     public UnityEvent OnBellHitUE;
     float GaugeInnerStartHeight;
     public float score = 0;
     float time = 1;
     bool gameActive = true;
+    [SerializeField] int maxTicket = 1;
+    int givenTicket = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,18 +37,22 @@ public class StrongManBell : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Hammer_FFF" && gameActive)
+        if (  gameActive)
         {
-            score = collision.relativeVelocity.magnitude;//this stores the impact force
-            ScoreText.text = Mathf.Round(score * 10).ToString();
+            if (collision.gameObject.tag == "Hammer" || collision.gameObject.tag == "Trophy")
+            {
+                score = collision.relativeVelocity.magnitude;//this stores the impact force
+                ScoreText.text = Mathf.Round(score * 10).ToString();
 
-            isGameOver = true;
+                isGameOver = true;
 
-            GameOver();
+                GameOver();
 
-            //unity event çaðýr
-            OnBellHitUE.Invoke();
-            OnBellHit();
+                //unity event çaðýr
+                OnBellHitUE.Invoke();
+                OnBellHit();
+            }
+            
 
         }
     }
@@ -66,15 +75,30 @@ public class StrongManBell : MonoBehaviour
     }
     public void GameOver()
     {
-        ticketMachine.GetComponent<TicketMachineController>().GiveTicket(Mathf.RoundToInt( score));
+        if (Mathf.RoundToInt(score) >= 5)
+        {
+            ticketMachine.GetComponent<TicketMachineController>().GiveTicket(Mathf.RoundToInt(score/5));
+            //givenTicket += Mathf.RoundToInt(score / 5);
+            //if (givenTicket >= maxTicket)
+            //{
+            //    Destroy(Hammer);
+            //    gameActive = false;
+
+            //}
+        }
+        
 
     }
     public void OnBellHit()
     {
         GaugeInner.transform.position = new Vector3(GaugeInner.transform.position.x, GaugeInnerStartHeight, GaugeInner.transform.position.z);// reset the gauge first
         //GaugeInner.transform.position = new Vector3(GaugeInner.transform.position.x, GaugeInnerStartHeight + score/3 , GaugeInner.transform.position.z);//set the gauge position, needs a better calculation
-
-        StartCoroutine(MoveInnerGauge(GaugeInnerStartHeight + score / 3, time));
+        if (gameActive )
+        {
+            scoreIncreaseStart.Invoke();
+        }
+        
+        StartCoroutine(MoveInnerGauge(GaugeInnerStartHeight + score / 5, time));
     }
     IEnumerator MoveInnerGauge(float targetHeight, float time)
     {
@@ -90,5 +114,6 @@ public class StrongManBell : MonoBehaviour
         GaugeInner.transform.position = new Vector3(GaugeInner.transform.position.x, targetHeight, GaugeInner.transform.position.z);
 
         gameActive = true;
+        scoreIncreaseStop.Invoke();
     }
 }

@@ -24,4 +24,9 @@ public class TicketController : MonoBehaviour
         ticketCount++;
         TicketText.text = ticketCount.ToString();
     }
+    public void DecreaseTicket(int buyCost)
+    {
+        ticketCount -= buyCost;
+        TicketText.text = ticketCount.ToString();
+    }
 }

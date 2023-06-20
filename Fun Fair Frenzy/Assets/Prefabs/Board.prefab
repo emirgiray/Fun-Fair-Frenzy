@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8896254678355137093}
   - component: {fileID: 5537743002221207008}
   - component: {fileID: 7727882989163260202}
+  - component: {fileID: 8506756422806652615}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8506756422806652615
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8087911679988566271}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 1004831226847165079, guid: 4dc42a8d3a1f7f84fa9fc32b4cc46fb7, type: 3}
 --- !u!1 &9007024448077508677
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,7 +134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0}
+  m_AnchoredPosition: {x: 0, y: 0.044}
   m_SizeDelta: {x: 166.9486, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9007024448077508792
@@ -152,8 +167,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reset
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d0c9e535fe5566d4db24937c8cded785, type: 2}
+  m_sharedMaterial: {fileID: -3666095917694829219, guid: d0c9e535fe5566d4db24937c8cded785,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

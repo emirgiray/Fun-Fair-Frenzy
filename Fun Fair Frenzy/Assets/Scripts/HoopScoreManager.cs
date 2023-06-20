@@ -51,13 +51,19 @@ public class HoopScoreManager : MonoBehaviour
         {
             isGameOver = true;
 
-            GameOver();
+            StartCoroutine(WaitSeconds(1.5f));
         }
     }
     public void GameOver()
     {
         ticketMachine.GetComponent<TicketMachineController>().GiveTicket(score);
 
+    }
+    IEnumerator WaitSeconds(float time)
+    {
+
+        yield return new WaitForSeconds(time);
+        GameOver();
     }
 }
 

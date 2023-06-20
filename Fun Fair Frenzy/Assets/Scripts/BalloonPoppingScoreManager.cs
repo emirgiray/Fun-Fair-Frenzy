@@ -18,6 +18,9 @@ public class BalloonPoppingScoreManager : MonoBehaviour
     [SerializeField] TMP_Text ScoreText;
     public int score = 0;
 
+    [SerializeField] int maxTicket = 1;
+    int givenTicket = 0;
+
     void Start()
     {
         numberOfTries = GOSpawner.GetComponent<HoopSpawner>().spawnLimit + 1;
@@ -69,13 +72,25 @@ public class BalloonPoppingScoreManager : MonoBehaviour
         {
             isGameOver = true;
 
-            GameOver();
+           StartCoroutine(WaitSeconds(1.5f));
         }
     }
     public void GameOver()
     {
         ticketMachine.GetComponent<TicketMachineController>().GiveTicket(score);
+        //givenTicket += Mathf.RoundToInt(score);
+        //if (givenTicket >= maxTicket)
+        //{
+        //    //Destroy(SpawnedBow);
+        //    GOSpawner.GetComponent<HoopSpawner>().gameActive = false;
+        //}
 
+    }
+    IEnumerator WaitSeconds(float time)
+    {
+
+        yield return new WaitForSeconds(time);
+        GameOver();
     }
 
 }

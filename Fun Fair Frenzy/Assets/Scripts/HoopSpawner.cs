@@ -17,7 +17,7 @@ public class HoopSpawner : MonoBehaviour
      List<GameObject> spawnedHoops = new List<GameObject>();
     int spawned;
     int spawnIndex = 0;
-    bool gameActive = true;
+    public bool gameActive = true;
     void Start()
     {
         //ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();       
@@ -31,7 +31,7 @@ public class HoopSpawner : MonoBehaviour
     }
     public void SpawnHoop()
     {
-        if (/*gameActive &&*/ spawned <= spawnLimit)
+        if (gameActive && spawned <= spawnLimit)
         {
             spawnedHoops.Add(null);
 
@@ -49,7 +49,7 @@ public class HoopSpawner : MonoBehaviour
     }
     public void SpawnGO()
     {
-        if (/*gameActive &&*/ spawned <= spawnLimit)
+        if (gameActive && spawned <= spawnLimit)
         {
             spawnedHoops.Add(null);
 

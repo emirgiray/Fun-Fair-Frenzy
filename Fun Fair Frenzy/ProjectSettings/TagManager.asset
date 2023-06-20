@@ -7,6 +7,8 @@ TagManager:
   - projectile
   - Bottle
   - Hands
+  - Hammer
+  - Trophy
   layers:
   - Default
   - TransparentFX

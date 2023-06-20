@@ -1,3 +1,4 @@
+using FMODUnity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,5 +26,6 @@ public class Balloon : MonoBehaviour
         scoreManager.UpdateScore();
         Instantiate(balloonParticleSystem, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        GameObject.Find("Pop Sound").GetComponent<StudioEventEmitter>().Play();
     }
 }
