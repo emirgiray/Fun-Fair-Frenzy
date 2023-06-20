@@ -8,6 +8,9 @@ public class ArcheryGame : MonoBehaviour
     public int numberOfTries = 10;
     public int exhaustedTries = 0;
     public bool isGameOver = false;
+    [SerializeField] GameObject Bow;
+    [SerializeField] GameObject SpawnedBow;
+    [SerializeField] GameObject BowSpawnLocation;
     [SerializeField] GameObject ticketMachine;
     [SerializeField] GameObject GOSpawner;
     [SerializeField] TMP_Text ScoreText;
@@ -48,6 +51,10 @@ public class ArcheryGame : MonoBehaviour
 
         //spawn knifes again
         exhaustedTries = 0;
+
+        //Destroy(SpawnedBow);
+        //SpawnedBow = null;
+        //SpawnedBow = Instantiate(Bow, BowSpawnLocation.transform.position, Bow.transform.rotation);
     }
     public void ExhaustTries()
     {

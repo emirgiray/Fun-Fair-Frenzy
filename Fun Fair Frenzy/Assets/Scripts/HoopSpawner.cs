@@ -10,6 +10,7 @@ public class HoopSpawner : MonoBehaviour
 {
     [SerializeField] bool isMovingHoopGame;
     [SerializeField] TMP_Text ScoreText;
+    [SerializeField] TMP_Text SpawnRemaining;
     [SerializeField] GameObject goToSpawn;
     [SerializeField] GameObject SpwanPoint;
     [SerializeField] public int spawnLimit = 10;
@@ -20,6 +21,7 @@ public class HoopSpawner : MonoBehaviour
     void Start()
     {
         //ScoreText = GameObject.Find("Hoop Score").GetComponent<TMP_Text>();       
+        SpawnRemaining.text = (spawnLimit + 1).ToString();
     }
 
 
@@ -42,6 +44,7 @@ public class HoopSpawner : MonoBehaviour
 
             spawned++;
             spawnIndex++; //reset them!!!
+            SpawnRemaining.text = (spawnLimit - spawned +1).ToString();
         }
     }
     public void SpawnGO()
@@ -55,6 +58,7 @@ public class HoopSpawner : MonoBehaviour
 
             spawned++;
             spawnIndex++; //reset them!!!
+            SpawnRemaining.text = (spawnLimit - spawned + 1).ToString();
         }
     }
     public void ReseteGame()
@@ -69,6 +73,8 @@ public class HoopSpawner : MonoBehaviour
         spawned = 0;
         ScoreText.text = ("0");
         spawnedHoops.Clear();
+
+        SpawnRemaining.text = (spawnLimit + 1).ToString();
 
         //if (!gameActive)
         //{
